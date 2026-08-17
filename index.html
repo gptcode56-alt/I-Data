@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سجل البيانات</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <div>
+                <h1>سجل البيانات</h1>
+                <p>إدارة الأسماء والأرقام القومية</p>
+            </div>
+
+            <div class="counter">
+                <span id="count">0</span>
+                <small>سجل</small>
+            </div>
+        </header>
+
+
+        <!-- إضافة بيانات -->
+        <section class="card">
+
+            <h2>إضافة شخص جديد</h2>
+
+            <div class="form">
+
+                <div class="input-box">
+                    <label>الاسم</label>
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="اكتب الاسم بالكامل"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="input-box">
+                    <label>الرقم القومي</label>
+                    <input
+                        type="text"
+                        id="nationalIdInput"
+                        placeholder="14 رقم"
+                        maxlength="14"
+                        inputmode="numeric"
+                        autocomplete="off"
+                    >
+                    <small id="idMessage"></small>
+                </div>
+
+                <button id="addBtn" class="add-btn">
+                    + إضافة البيانات
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- البحث -->
+        <section class="search-area">
+
+            <div class="search-box">
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="ابحث بالاسم أو الرقم القومي..."
+                    autocomplete="off"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- الجدول -->
+        <section class="card table-card">
+
+            <div class="table-header">
+                <h2>البيانات المسجلة</h2>
+
+                <button id="clearBtn" class="clear-btn">
+                    حذف الكل
+                </button>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الاسم</th>
+                            <th>الرقم القومي</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="dataTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div id="emptyMessage" class="empty">
+                <div class="empty-icon">📋</div>
+                <h3>لا توجد بيانات</h3>
+                <p>ابدأ بإضافة أول شخص</p>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- نافذة التعديل -->
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>تعديل البيانات</h2>
+
+                <button id="closeModal">×</button>
+            </div>
+
+            <label>الاسم</label>
+            <input type="text" id="editName">
+
+            <label>الرقم القومي</label>
+            <input
+                type="text"
+                id="editNationalId"
+                maxlength="14"
+                inputmode="numeric"
+            >
+
+            <div class="modal-buttons">
+
+                <button id="cancelEdit" class="cancel-btn">
+                    إلغاء
+                </button>
+
+                <button id="saveEdit" class="save-btn">
+                    حفظ التعديل
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
